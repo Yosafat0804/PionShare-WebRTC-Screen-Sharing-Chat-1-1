@@ -1,52 +1,42 @@
-🖥️ PionShare — WebRTC Screen Sharing & Chat (1–1)
+# 🖥️ PionShare — WebRTC Screen Sharing & Chat (1–1)
 
-PionShare adalah aplikasi real-time screen sharing satu-ke-satu (1–1) yang dibangun menggunakan WebRTC di browser dan library Pion (Golang) sebagai signaling server.
-Aplikasi ini juga menyediakan fitur chat teks real-time menggunakan WebRTC DataChannel.
+**PionShare** adalah aplikasi **real-time screen sharing satu-ke-satu (1–1)** yang dibangun menggunakan **WebRTC di browser** dan **Golang (Pion)** sebagai signaling server.
 
-Project ini dibuat sebagai tugas mata kuliah Pemrograman Jaringan untuk memahami konsep:
+Aplikasi ini juga menyediakan **chat teks real-time** menggunakan **WebRTC DataChannel**.
 
-WebRTC
+Project ini dibuat sebagai **tugas mata kuliah Pemrograman Jaringan**.
 
-Peer-to-Peer Communication
+---
 
-Signaling Server
+## ✨ Fitur Utama
 
-Server-Sent Events (SSE)
+- 📡 Screen sharing real-time (1–1)
+- 💬 Chat teks real-time (WebRTC DataChannel)
+- 🔄 Signaling server menggunakan Golang
+- 🌐 Tanpa WebSocket (SSE + HTTP POST)
+- 🧪 Cocok untuk pembelajaran WebRTC
 
-✨ Fitur Utama
+---
 
-📡 Screen sharing real-time (1–1)
+## 🛠️ Teknologi yang Digunakan
 
-💬 Chat teks menggunakan WebRTC DataChannel
+### Frontend
+- HTML
+- CSS
+- JavaScript
+- WebRTC API (`RTCPeerConnection`, `getDisplayMedia`)
 
-🔄 Signaling server berbasis Golang (Pion)
+### Backend
+- Golang
+- Pion WebRTC
+- Server-Sent Events (SSE)
 
-🌐 Tanpa WebSocket (menggunakan SSE + HTTP POST)
+---
 
-🧪 Cocok untuk pembelajaran dan demonstrasi WebRTC
+## 📂 Struktur Folder
 
-🛠️ Teknologi yang Digunakan
-Frontend
-
-HTML
-
-CSS
-
-JavaScript
-
-WebRTC API (RTCPeerConnection, getDisplayMedia)
-
-Backend
-
-Golang
-
-Pion WebRTC
-
-Server-Sent Events (SSE)
-
-📂 Struktur Folder
+```text
 PionShare/
-│
 ├── server/
 │   └── main.go          # Signaling server (Go + SSE)
 │
@@ -72,7 +62,6 @@ Buka terminal di root project, lalu jalankan:
 cd "C:\Users\Yosafat\OneDrive\Dokumen\Semester 5\Pemrograman Jaringan\PionShare"
 go run ./server
 
-
 Jika berhasil, akan muncul log:
 
 Starting signaling server at :8080
@@ -85,62 +74,62 @@ http://localhost:8080/
 
 4️⃣ Cara Menggunakan
 
-Masukkan Room name yang sama di kedua tab
+    Masukkan Room name yang sama di kedua tab
 
-Gunakan ID yang berbeda untuk setiap pengguna
+    Gunakan ID yang berbeda
 
-Di tab pertama, klik 🎥 Share Screen
+    Tab pertama → klik 🎥 Share Screen
 
-Di tab kedua, klik 👀 Join as Viewer
+    Tab kedua → klik 👀 Join as Viewer
 
-Layar akan muncul di sisi viewer
+    Layar akan muncul di viewer
 
-Gunakan fitur Chat untuk mengirim pesan
+    Gunakan Chat untuk mengirim pesan
 
 🧠 Cara Kerja Singkat
 
-Browser menggunakan WebRTC untuk koneksi peer-to-peer
+    Browser membuat koneksi peer-to-peer WebRTC
 
-Signaling server (Go) hanya bertugas:
+    Server hanya berfungsi sebagai signaling:
 
-Mengirim SDP Offer / Answer
+        SDP Offer / Answer
 
-Mengirim ICE Candidate
+        ICE Candidate
 
-Media tidak melewati server, tetapi langsung antar browser
+    Media tidak melewati server
 
-Chat menggunakan WebRTC DataChannel
+    Chat menggunakan WebRTC DataChannel
 
 ⚠️ Catatan Penting
 
-Aplikasi ini hanya untuk keperluan pembelajaran
+    Project ini hanya untuk pembelajaran
 
-Untuk penggunaan produksi dibutuhkan:
+    Untuk produksi dibutuhkan:
 
-🔐 HTTPS
+        🔐 HTTPS
 
-🔁 TURN Server
+        🔁 TURN Server
 
-👤 Authentication & Authorization
+        👤 Authentication
 
-Screen sharing akan otomatis berhenti di viewer saat sharer menghentikan share
+    Screen viewer otomatis berhenti saat sharer menghentikan share
 
 🎓 Tujuan Pembelajaran
 
 Project ini membantu mahasiswa memahami:
 
-Konsep WebRTC dan Peer-to-Peer
+    Konsep WebRTC & Peer-to-Peer
 
-Proses signaling
+    Proses signaling
 
-Implementasi WebRTC menggunakan Pion (Golang)
+    Implementasi WebRTC dengan Golang (Pion)
 
-Komunikasi real-time dalam jaringan
+    Komunikasi real-time jaringan
 
 👤 Author
 
-Nama: Yosafat
+    Nama: Yosafat
 
-Mata Kuliah: Pemrograman Jaringan
+    Mata Kuliah: Pemrograman Jaringan
 
-Tahun: 2026
+    Tahun: 2026
