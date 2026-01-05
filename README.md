@@ -35,7 +35,6 @@ Project ini dibuat sebagai **tugas mata kuliah Pemrograman Jaringan**.
 
 ## 📂 Struktur Folder
 
-```text
 PionShare/
 ├── server/
 │   └── main.go          # Signaling server (Go + SSE)
