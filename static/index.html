@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PionShare – Screen Sharing & Chat</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <h1>🖥️ PionShare</h1>
+    <p class="subtitle">Real-Time Screen Sharing & Chat (WebRTC + Pion Golang)</p>
+
+    <div class="card controls">
+      <input id="room" placeholder="Room name" value="room1" />
+      <input id="id" placeholder="Your ID (optional)" />
+      <button id="shareBtn" class="primary">🎥 Share Screen</button>
+      <button id="joinBtn">👀 Join as Viewer</button>
+    </div>
+
+    <div class="card video-card">
+      <video id="remoteVideo" autoplay playsinline></video>
+      <p class="video-hint">Shared screen will appear here</p>
+    </div>
+
+    <div class="card chat">
+      <h3>💬 Chat</h3>
+      <div id="log"></div>
+      <div class="chat-input">
+        <input id="msg" placeholder="Type a message…" />
+        <button id="sendMsg">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <small>PionShare © 2026 — Pemrograman Jaringan</small>
+  </footer>
+
+  <script src="/client.js"></script>
+</body>
+</html>

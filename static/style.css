@@ -1,0 +1,134 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* App layout */
+.app {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.controls input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 150px;
+}
+
+.controls button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #e0e0e0;
+  transition: 0.2s;
+}
+
+.controls button:hover {
+  opacity: 0.85;
+}
+
+.controls .primary {
+  background: #2563eb;
+  color: white;
+}
+
+/* Video */
+.video-card {
+  text-align: center;
+}
+
+video {
+  width: 100%;
+  max-height: 420px;
+  background: black;
+  border-radius: 8px;
+}
+
+.video-hint {
+  color: #888;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Chat */
+.chat h3 {
+  margin-top: 0;
+}
+
+#log {
+  height: 180px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 8px;
+  background: #fafafa;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.chat-input button {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #999;
+  margin-bottom: 20px;
+}
