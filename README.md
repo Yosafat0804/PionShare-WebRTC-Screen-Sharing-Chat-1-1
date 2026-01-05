@@ -1,36 +1,32 @@
-# 🖥️ PionShare — WebRTC Screen Sharing & Chat (1–1)
+# 🖥️ PionShare — WebRTC Screen Sharing & Chat
 
-**PionShare** adalah aplikasi **real-time screen sharing satu-ke-satu (1–1)** yang dibangun menggunakan **WebRTC di browser** dan **Golang (Pion)** sebagai **signaling server**.
+![Go Version](https://img.shields.io/badge/Go-1.20%2B-00ADD8?style=flat&logo=go)
+![WebRTC](https://img.shields.io/badge/WebRTC-Real--Time-333333?style=flat&logo=webrtc)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-Aplikasi ini juga menyediakan **chat teks real-time** menggunakan **WebRTC DataChannel**.
+**PionShare** adalah aplikasi **real-time screen sharing satu-ke-satu (1–1)** yang dibangun menggunakan **WebRTC di browser** dan **Golang (Pion)** sebagai signaling server. Aplikasi ini juga dilengkapi dengan fitur **chat teks** menggunakan WebRTC DataChannel.
 
-Project ini dibuat sebagai **tugas mata kuliah Pemrograman Jaringan**.
+> 🎓 **Project Note:** Project ini dibuat untuk memenuhi tugas mata kuliah **Pemrograman Jaringan**.
 
 ---
 
 ## ✨ Fitur Utama
 
-- 🖥️ Screen sharing real-time (1–1)
-- 💬 Chat teks real-time (WebRTC DataChannel)
-- 📡 Signaling server menggunakan Golang (Pion)
-- 🌐 Tanpa WebSocket (SSE + HTTP POST)
-- 🧪 Cocok untuk pembelajaran WebRTC
+- 🖥️ **Screen Sharing Real-time:** Berbagi layar antar peer (1-on-1).
+- 💬 **Text Chat:** Kirim pesan instan tanpa server database (via DataChannel).
+- 📡 **Golang Signaling:** Server ringan menggunakan library Pion.
+- 🌐 **No WebSocket:** Menggunakan mekanisme HTTP POST + Server-Sent Events (SSE).
+- 🧪 **Educational:** Kode yang bersih dan cocok untuk mempelajari dasar WebRTC.
 
 ---
 
 ## 🛠️ Teknologi yang Digunakan
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
-- WebRTC API  
-  (`RTCPeerConnection`, `getDisplayMedia`)
-
-### Backend
-- Golang
-- Pion WebRTC
-- Server-Sent Events (SSE)
+| Kategori | Teknologi |
+| :--- | :--- |
+| **Frontend** | HTML5, CSS3, JavaScript (ES6+), WebRTC API (`RTCPeerConnection`, `getDisplayMedia`) |
+| **Backend** | Golang (Go), Pion WebRTC |
+| **Protokol** | Server-Sent Events (SSE) untuk signaling |
 
 ---
 
@@ -39,98 +35,95 @@ Project ini dibuat sebagai **tugas mata kuliah Pemrograman Jaringan**.
 ```text
 PionShare/
 ├── server/
-│   └── main.go          # Signaling server (Go + SSE)
+│   └── main.go          # Signaling server (Go + SSE Logic)
 │
 ├── static/
-│   ├── index.html       # UI utama
-│   ├── client.js        # WebRTC & signaling logic
+│   ├── index.html       # Antarmuka Pengguna (UI)
+│   ├── client.js        # Logika WebRTC (Offer, Answer, ICE)
 │   └── style.css        # Styling aplikasi
 │
-├── go.mod
-└── README.md
+├── go.mod               # Go module definition
+└── README.md            # Dokumentasi project
 
 ▶️ Cara Menjalankan Aplikasi
-1️⃣ Install Go
 
-Pastikan Go versi 1.20 atau lebih baru sudah terinstall:
+Ikuti langkah-langkah berikut untuk menjalankan project ini di komputer lokal Anda.
+1️⃣ Prasyarat
+
+Pastikan Go (Golang) versi 1.20 atau lebih baru sudah terinstall.
+Bash
 
 go version
 
 2️⃣ Jalankan Server
 
-Buka terminal di root project, lalu jalankan:
+Buka terminal di root folder project, lalu jalankan perintah berikut:
+Bash
 
-cd "C:\Users\Yosafat\OneDrive\Dokumen\Semester 5\Pemrograman Jaringan\PionShare"
+# Masuk ke direktori project (sesuaikan dengan lokasi folder Anda)
+cd PionShare
+
+# Jalankan server
 go run ./server
 
-Jika berhasil, akan muncul log:
+Jika berhasil, Anda akan melihat log:
+Plaintext
 
 Starting signaling server at :8080
 
 3️⃣ Akses Aplikasi
 
-Buka 2 tab browser (Chrome / Edge disarankan), lalu kunjungi:
+Buka browser (disarankan Google Chrome atau Microsoft Edge), lalu kunjungi: 👉 http://localhost:8080/
+🎮 Cara Menggunakan
 
-http://localhost:8080/
+Untuk mensimulasikan koneksi antar dua user:
 
-4️⃣ Cara Menggunakan
+    Buka 2 Tab Browser (atau 2 window berbeda).
 
-    Masukkan Room name yang sama di kedua tab
+    Pastikan kedua tab berada di alamat http://localhost:8080/.
 
-    Gunakan ID yang berbeda
+    Setup Room:
 
-    Tab pertama → klik 🎥 Share Screen
+        Masukkan Room Name yang sama di kedua tab (contoh: RoomA).
 
-    Tab kedua → klik 👀 Join as Viewer
+        Gunakan User ID yang berbeda (contoh: User1 di tab kiri, User2 di tab kanan).
 
-    Layar akan muncul di viewer
+    Mulai Sharing:
 
-    Gunakan Chat untuk mengirim pesan teks
+        Tab 1: Klik tombol 🎥 Share Screen.
 
-🧠 Cara Kerja Singkat
+        Tab 2: Klik tombol 👀 Join as Viewer.
 
-    Browser membuat koneksi peer-to-peer WebRTC
+    Hasil: Layar dari Tab 1 akan muncul di Tab 2.
 
-    Server hanya berfungsi sebagai signaling, untuk:
+    Chat: Ketik pesan di kolom chat untuk berkomunikasi secara real-time.
 
-        SDP Offer / Answer
+🧠 Cara Kerja (Architecture)
 
-        ICE Candidate
+Aplikasi ini menggunakan topologi Peer-to-Peer (P2P):
 
-    Media tidak melewati server
+    Signaling: Browser A dan Browser B bertukar informasi koneksi (SDP Offer/Answer & ICE Candidates) melalui server Golang menggunakan HTTP Post dan SSE.
 
-    Chat menggunakan WebRTC DataChannel
+    P2P Connection: Setelah sinyal bertukar, koneksi langsung terbentuk antar browser.
+
+    Media Stream: Video/Layar dikirim langsung antar browser tanpa melewati server.
+
+    Data Channel: Pesan teks dikirim lewat jalur data WebRTC yang aman dan cepat.
 
 ⚠️ Catatan Penting
 
-    Project ini hanya untuk pembelajaran
+    [!WARNING] Project ini ditujukan untuk pembelajaran (Educational Purpose).
 
-    Untuk penggunaan produksi dibutuhkan:
+Untuk penggunaan di lingkungan produksi (Production), Anda perlu menambahkan:
 
-        🔐 HTTPS
+    🔐 HTTPS: Wajib untuk akses API getDisplayMedia di jaringan publik (bukan localhost).
 
-        🔁 TURN Server
+    🔁 TURN Server: Diperlukan jika user berada di balik NAT/Firewall ketat.
 
-        👤 Authentication
-
-    Screen viewer akan otomatis berhenti saat sharer menghentikan screen sharing
-
-🎓 Tujuan Pembelajaran
-
-Project ini membantu mahasiswa memahami:
-
-    Konsep WebRTC & Peer-to-Peer
-
-    Proses signaling WebRTC
-
-    Implementasi WebRTC menggunakan Golang (Pion)
-
-    Komunikasi jaringan real-time
+    👤 Authentication: Sistem login user yang aman.
 
 👤 Author
-
-    Nama: Yosafat
-
-    Mata Kuliah: Pemrograman Jaringan
-
-    Tahun: 2026
+Informasi	Detail
+Nama	Yosafat
+Mata Kuliah	Pemrograman Jaringan
+Tahun	2026
