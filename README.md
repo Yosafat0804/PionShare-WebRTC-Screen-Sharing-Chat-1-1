@@ -32,9 +32,7 @@ Project ini dibuat sebagai **tugas mata kuliah Pemrograman Jaringan**.
 - Server-Sent Events (SSE)
 
 ---
-
-## 📂 Struktur Folder
-
+📂 Struktur Folder
 PionShare/
 ├── server/
 │   └── main.go          # Signaling server (Go + SSE)
@@ -61,6 +59,7 @@ Buka terminal di root project, lalu jalankan:
 cd "C:\Users\Yosafat\OneDrive\Dokumen\Semester 5\Pemrograman Jaringan\PionShare"
 go run ./server
 
+
 Jika berhasil, akan muncul log:
 
 Starting signaling server at :8080
@@ -71,64 +70,64 @@ Buka 2 tab browser (Chrome / Edge disarankan), lalu kunjungi:
 
 http://localhost:8080/
 
-4️⃣ Cara Menggunakan
+🧑‍💻 Cara Menggunakan
 
-    Masukkan Room name yang sama di kedua tab
+Masukkan Room name yang sama di kedua tab
 
-    Gunakan ID yang berbeda
+Gunakan ID yang berbeda
 
-    Tab pertama → klik 🎥 Share Screen
+Tab pertama → klik 🎥 Share Screen
 
-    Tab kedua → klik 👀 Join as Viewer
+Tab kedua → klik 👀 Join as Viewer
 
-    Layar akan muncul di viewer
+Layar akan muncul di viewer
 
-    Gunakan Chat untuk mengirim pesan
+Gunakan Chat untuk mengirim pesan
 
 🧠 Cara Kerja Singkat
 
-    Browser membuat koneksi peer-to-peer WebRTC
+Browser membuat koneksi peer-to-peer WebRTC
 
-    Server hanya berfungsi sebagai signaling:
+Server hanya berfungsi sebagai signaling, yaitu:
 
-        SDP Offer / Answer
+SDP Offer / Answer
 
-        ICE Candidate
+ICE Candidate
 
-    Media tidak melewati server
+Media tidak melewati server
 
-    Chat menggunakan WebRTC DataChannel
+Chat menggunakan WebRTC DataChannel
 
 ⚠️ Catatan Penting
 
-    Project ini hanya untuk pembelajaran
+Project ini hanya untuk pembelajaran
 
-    Untuk produksi dibutuhkan:
+Untuk penggunaan produksi, dibutuhkan:
 
-        🔐 HTTPS
+🔐 HTTPS
 
-        🔁 TURN Server
+🔁 TURN Server
 
-        👤 Authentication
+👤 Authentication
 
-    Screen viewer otomatis berhenti saat sharer menghentikan share
+Screen viewer otomatis berhenti saat sharer menghentikan screen sharing
 
 🎓 Tujuan Pembelajaran
 
 Project ini membantu mahasiswa memahami:
 
-    Konsep WebRTC & Peer-to-Peer
+Konsep WebRTC & Peer-to-Peer
 
-    Proses signaling
+Proses signaling
 
-    Implementasi WebRTC dengan Golang (Pion)
+Implementasi WebRTC dengan Golang (Pion)
 
-    Komunikasi real-time jaringan
+Komunikasi real-time jaringan
 
 👤 Author
 
-    Nama: Yosafat
+Nama: Yosafat
 
-    Mata Kuliah: Pemrograman Jaringan
+Mata Kuliah: Pemrograman Jaringan
 
-    Tahun: 2026
+Tahun: 2026
