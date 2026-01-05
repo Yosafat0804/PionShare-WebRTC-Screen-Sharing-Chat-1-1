@@ -26,14 +26,17 @@ Server-Sent Events (SSE)
 🧪 Cocok untuk pembelajaran dan demonstrasi WebRTC
 
 🛠️ Teknologi yang Digunakan
+Frontend
 
-Frontend:
+HTML
 
-HTML, CSS, JavaScript
+CSS
+
+JavaScript
 
 WebRTC API (RTCPeerConnection, getDisplayMedia)
 
-Backend:
+Backend
 
 Golang
 
@@ -84,13 +87,13 @@ http://localhost:8080/
 
 Masukkan Room name yang sama di kedua tab
 
-Gunakan ID berbeda untuk setiap pengguna
+Gunakan ID yang berbeda untuk setiap pengguna
 
 Di tab pertama, klik 🎥 Share Screen
 
 Di tab kedua, klik 👀 Join as Viewer
 
-Layar akan muncul di viewer
+Layar akan muncul di sisi viewer
 
 Gunakan fitur Chat untuk mengirim pesan
 
@@ -104,13 +107,13 @@ Mengirim SDP Offer / Answer
 
 Mengirim ICE Candidate
 
-Media tidak lewat server, tetapi langsung antar browser
+Media tidak melewati server, tetapi langsung antar browser
 
 Chat menggunakan WebRTC DataChannel
 
 ⚠️ Catatan Penting
 
-Aplikasi ini hanya untuk pembelajaran
+Aplikasi ini hanya untuk keperluan pembelajaran
 
 Untuk penggunaan produksi dibutuhkan:
 
@@ -132,24 +135,12 @@ Proses signaling
 
 Implementasi WebRTC menggunakan Pion (Golang)
 
-Komunikasi real-time di jaringan
+Komunikasi real-time dalam jaringan
 
 👤 Author
 
 Nama: Yosafat
+
 Mata Kuliah: Pemrograman Jaringan
+
 Tahun: 2026
-1. Install Go 1.20+
-2. From project root run:
-
-```powershell
-cd "C:\Users\Yosafat\OneDrive\Dokumen\Semester 5\Pemrograman Jaringan\WebRTC Screen Sharing 1-1 + Chat Text"
-go run ./server
-```
-
-3. Open two browser windows (Chrome/Edge) and visit `http://localhost:8080/`.
-4. In each, choose the same room name and different `id`, then click Start in one of them to begin sharing. The other peer should receive the shared screen. Use the chat box to send messages (DataChannel preferred).
-
-Notes:
-- This simplified signaling server uses Server-Sent Events (SSE) + HTTP POST (no external Go modules required). The actual WebRTC PeerConnections run in the browsers and exchange SDP/candidates through this signaling server.
-- For production you still need TURN servers, HTTPS, and authentication.
