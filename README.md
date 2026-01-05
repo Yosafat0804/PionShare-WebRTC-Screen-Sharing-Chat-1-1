@@ -1,6 +1,6 @@
 # 🖥️ PionShare — WebRTC Screen Sharing & Chat (1–1)
 
-**PionShare** adalah aplikasi **real-time screen sharing satu-ke-satu (1–1)** yang dibangun menggunakan **WebRTC di browser** dan **Golang (Pion)** sebagai signaling server.
+**PionShare** adalah aplikasi **real-time screen sharing satu-ke-satu (1–1)** yang dibangun menggunakan **WebRTC di browser** dan **Golang (Pion)** sebagai **signaling server**.
 
 Aplikasi ini juga menyediakan **chat teks real-time** menggunakan **WebRTC DataChannel**.
 
@@ -10,9 +10,9 @@ Project ini dibuat sebagai **tugas mata kuliah Pemrograman Jaringan**.
 
 ## ✨ Fitur Utama
 
-- 📡 Screen sharing real-time (1–1)
+- 🖥️ Screen sharing real-time (1–1)
 - 💬 Chat teks real-time (WebRTC DataChannel)
-- 🔄 Signaling server menggunakan Golang
+- 📡 Signaling server menggunakan Golang (Pion)
 - 🌐 Tanpa WebSocket (SSE + HTTP POST)
 - 🧪 Cocok untuk pembelajaran WebRTC
 
@@ -24,7 +24,8 @@ Project ini dibuat sebagai **tugas mata kuliah Pemrograman Jaringan**.
 - HTML
 - CSS
 - JavaScript
-- WebRTC API (`RTCPeerConnection`, `getDisplayMedia`)
+- WebRTC API  
+  (`RTCPeerConnection`, `getDisplayMedia`)
 
 ### Backend
 - Golang
@@ -32,7 +33,10 @@ Project ini dibuat sebagai **tugas mata kuliah Pemrograman Jaringan**.
 - Server-Sent Events (SSE)
 
 ---
-📂 Struktur Folder
+
+## 📂 Struktur Folder
+
+```text
 PionShare/
 ├── server/
 │   └── main.go          # Signaling server (Go + SSE)
@@ -59,7 +63,6 @@ Buka terminal di root project, lalu jalankan:
 cd "C:\Users\Yosafat\OneDrive\Dokumen\Semester 5\Pemrograman Jaringan\PionShare"
 go run ./server
 
-
 Jika berhasil, akan muncul log:
 
 Starting signaling server at :8080
@@ -70,64 +73,64 @@ Buka 2 tab browser (Chrome / Edge disarankan), lalu kunjungi:
 
 http://localhost:8080/
 
-🧑‍💻 Cara Menggunakan
+4️⃣ Cara Menggunakan
 
-Masukkan Room name yang sama di kedua tab
+    Masukkan Room name yang sama di kedua tab
 
-Gunakan ID yang berbeda
+    Gunakan ID yang berbeda
 
-Tab pertama → klik 🎥 Share Screen
+    Tab pertama → klik 🎥 Share Screen
 
-Tab kedua → klik 👀 Join as Viewer
+    Tab kedua → klik 👀 Join as Viewer
 
-Layar akan muncul di viewer
+    Layar akan muncul di viewer
 
-Gunakan Chat untuk mengirim pesan
+    Gunakan Chat untuk mengirim pesan teks
 
 🧠 Cara Kerja Singkat
 
-Browser membuat koneksi peer-to-peer WebRTC
+    Browser membuat koneksi peer-to-peer WebRTC
 
-Server hanya berfungsi sebagai signaling, yaitu:
+    Server hanya berfungsi sebagai signaling, untuk:
 
-SDP Offer / Answer
+        SDP Offer / Answer
 
-ICE Candidate
+        ICE Candidate
 
-Media tidak melewati server
+    Media tidak melewati server
 
-Chat menggunakan WebRTC DataChannel
+    Chat menggunakan WebRTC DataChannel
 
 ⚠️ Catatan Penting
 
-Project ini hanya untuk pembelajaran
+    Project ini hanya untuk pembelajaran
 
-Untuk penggunaan produksi, dibutuhkan:
+    Untuk penggunaan produksi dibutuhkan:
 
-🔐 HTTPS
+        🔐 HTTPS
 
-🔁 TURN Server
+        🔁 TURN Server
 
-👤 Authentication
+        👤 Authentication
 
-Screen viewer otomatis berhenti saat sharer menghentikan screen sharing
+    Screen viewer akan otomatis berhenti saat sharer menghentikan screen sharing
 
 🎓 Tujuan Pembelajaran
 
 Project ini membantu mahasiswa memahami:
 
-Konsep WebRTC & Peer-to-Peer
+    Konsep WebRTC & Peer-to-Peer
 
-Proses signaling
+    Proses signaling WebRTC
 
-Implementasi WebRTC dengan Golang (Pion)
+    Implementasi WebRTC menggunakan Golang (Pion)
 
-Komunikasi real-time jaringan
+    Komunikasi jaringan real-time
 
 👤 Author
 
-Nama: Yosafat
+    Nama: Yosafat
 
-Mata Kuliah: Pemrograman Jaringan
+    Mata Kuliah: Pemrograman Jaringan
 
-Tahun: 2026
+    Tahun: 2026
